@@ -640,12 +640,12 @@ int8_t bme68x_set_heatr_conf(uint8_t op_mode, const struct bme68x_heatr_conf *co
         rslt = bme68x_set_op_mode(BME68X_SLEEP_MODE, dev);
         if (rslt == BME68X_OK)
         {
-            rslt = set_conf(conf, op_mode, &nb_conv, dev);
+            rslt = set_conf(conf, op_mode, &nb_conv, dev);//set heater configuration
         }
 
         if (rslt == BME68X_OK)
         {
-            rslt = bme68x_get_regs(BME68X_REG_CTRL_GAS_0, ctrl_gas_data, 2, dev);
+            rslt = bme68x_get_regs(BME68X_REG_CTRL_GAS_0, ctrl_gas_data, 2, dev);//reads the data from the given register address of sensor.
             if (rslt == BME68X_OK)
             {
                 if (conf->enable == BME68X_ENABLE)
